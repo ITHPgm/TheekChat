@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TheekChat | Secure AIO Chatting Platform</title>
+<meta name="description" content="Secure messaging with military-grade encryption. Connect through text, voice, and video calls.">
+<meta name="keywords" content="TheekChat,secure messaging,encrypted chat,video calls">
+<meta name="author" content="Ibk Technet Hub">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://theekchat.rf.gd/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theekchat.rf.gd/">
+<meta property="og:title" content="TheekChat | Secure AIO Chatting Platform">
+<meta property="og:description" content="Secure, private messaging with military-grade encryption.">
+<meta property="og:image" content="https://theekchat.rf.gd/assets/logos/TheekChat_logo.png">
+<meta property="og:site_name" content="TheekChat">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://theekchat.rf.gd/">
+<meta property="twitter:title" content="TheekChat | Secure AIO Chatting Platform">
+<meta property="twitter:description" content="Secure, private messaging with military-grade encryption.">
+<meta property="twitter:image" content="https://theekchat.rf.gd/assets/logos/TheekChat_logo.png">
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "TheekChat",
+"applicationCategory": "CommunicationApplication",
+"offers": {
+"@type": "Offer",
+"price": "0",
+"priceCurrency": "USD"
+},
+"description": "Secure, private messaging with military-grade encryption.",
+"operatingSystem": "Android, iOS, Web",
+"publisher": {
+"@type": "Organization",
+"name": "Ibk Technet Hub"
+}
+}
+</script>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+:root {
+--primary: #00ffcc;
+--secondary: #0077ff;
+--accent: #ff00aa;
+--light: #0a0e17;
+--dark: #000000;
+--background: #0a0e17;
+--card-bg: #0d1525;
+--success: #00ff88;
+--warning: #ffaa00;
+--cyber-blue: #0077ff;
+--cyber-pink: #ff00aa;
+--cyber-green: #00ffcc
+}
+body {
+background-color: var(--background);
+color: #e0e0e0;
+min-height: 100vh;
+overflow-x: hidden;
+background-image: radial-gradient(circle at 10% 20%, rgba(0,119,255,0.1) 0%, transparent 20%),
+radial-gradient(circle at 90% 80%, rgba(255,0,170,0.1) 0%, transparent 20%),
+radial-gradient(circle at 30% 60%, rgba(0,255,204,0.1) 0%, transparent 15%);
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+header {
+padding: 15px 0;
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(10,14,23,0.95);
+backdrop-filter: blur(10px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+border-bottom: 1px solid rgba(0,255,204,0.1);
+}
+.header-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.logo {
+width: 40px;
+height: 40px;
+background-color: #fff;
+background-image: url('https://theekchat.rf.gd/assets/logos/TheekChat_logo.png');
+background-repeat: no-repeat;
+background-position: center;
+background-size: 70%;
+border-radius: 50%;
+box-shadow: 0 0 15px rgba(255,255,255,0.2), inset 0 0 10px rgba(0,0,0,0.2);
+transition: transform 0.5s ease;
+}
+.header-content:hover .logo {
+transform: scale(1.1);
+}
+.logo-container {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.logo-container h1 {
+font-size: 24px;
+font-weight: 700;
+background: linear-gradient(to right, var(--cyber-green), var(--cyber-blue));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+text-shadow: 0 0 8px rgba(0,255,204,0.2);
+}
+nav ul {
+display: flex;
+list-style: none;
+gap: 25px;
+}
+nav a {
+text-decoration: none;
+color: #c0c0c0;
+font-weight: 500;
+font-size: 15px;
+transition: all 0.3s;
+position: relative;
+}
+nav a:hover {
+color: var(--cyber-green);
+}
+nav a::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 2px;
+background: var(--cyber-green);
+transition: width 0.3s;
+}
+nav a:hover::after {
+width: 100%;
+}
+.auth-buttons {
+display: flex;
+gap: 12px;
+align-items: center;
+}
+.btn {
+padding: 10px 22px;
+border-radius: 25px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+border: none;
+font-size: 14px;
+position: relative;
+overflow: hidden;
+z-index: 1;
+text-decoration: none;
+display: inline-block;
+text-align: center;
+}
+.btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, var(--cyber-blue), var(--cyber-green));
+z-index: -1;
+opacity: 1;
+transition: all 0.3s;
+}
+.btn:hover::before {
+opacity: 0.9;
+transform: scale(1.05);
+}
+.btn-login {
+background: transparent;
+color: var(--cyber-green);
+border: 2px solid var(--cyber-green);
+}
+.btn-login::before {
+background: transparent;
+}
+.btn-login:hover {
+background: rgba(0,255,204,0.1);
+box-shadow: 0 0 12px rgba(0,255,204,0.2);
+}
+.btn-signup {
+color: var(--dark);
+box-shadow: 0 0 15px rgba(0,119,255,0.4);
+}
+.btn-signup:hover {
+transform: translateY(-2px);
+box-shadow: 0 0 20px rgba(0,119,255,0.6);
+}
+.menu-toggle {
+display: none;
+flex-direction: column;
+justify-content: space-between;
+width: 25px;
+height: 18px;
+cursor: pointer;
+position: relative;
+z-index: 101;
+}
+.menu-toggle span {
+display: block;
+height: 2px;
+width: 100%;
+background: var(--cyber-green);
+border-radius: 2px;
+transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+transform: translateY(-8px) rotate(-45deg);
+}
+.mobile-menu {
+position: fixed;
+top: 0;
+right: -280px;
+width: 220px;
+height: 100vh;
+background: var(--card-bg);
+box-shadow: -5px 0 12px rgba(0,0,0,0.2);
+padding: 70px 25px 25px;
+z-index: 100;
+border-left: 1px solid rgba(0,255,204,0.1);
+transition: right 0.3s ease;
+}
+.mobile-menu.active {
+right: 0;
+}
+.mobile-menu ul {
+list-style: none;
+}
+.mobile-menu ul li {
+margin-bottom: 18px;
+}
+.mobile-menu ul li a {
+text-decoration: none;
+color: #e0e0e0;
+font-weight: 500;
+font-size: 16px;
+transition: color 0.3s;
+}
+.mobile-menu ul li a:hover {
+color: var(--cyber-green);
+}
+.hero {
+padding: 50px 0 25px;
+display: flex;
+flex-direction: column;
+position: relative;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(0,119,255,0.05) 0%, transparent 50%),
+linear-gradient(225deg, rgba(255,0,170,0.05) 0%, transparent 50%);
+pointer-events: none;
+}
+.hero-banner {
+width: 100%;
+padding: 60px 0;
+text-align: center;
+margin-bottom: 35px;
+position: relative;
+border: 1px solid rgba(0,255,204,0.1);
+background: rgba(13,21,37,0.7);
+backdrop-filter: blur(5px);
+border-radius: 8px;
+overflow: hidden;
+}
+.hero-banner::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-green), var(--cyber-pink));
+}
+.hero-banner h2 {
+font-size: 2.8rem;
+line-height: 1.2;
+margin-bottom: 18px;
+background: linear-gradient(to right, var(--cyber-green), var(--cyber-blue));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+text-shadow: 0 0 12px rgba(0,255,204,0.15);
+}
+.hero-content {
+text-align: center;
+padding: 0 20px 40px;
+}
+.hero-content p {
+font-size: 1.1rem;
+color: #c0c0c0;
+margin-bottom: 25px;
+line-height: 1.6;
+max-width: 580px;
+margin-left: auto;
+margin-right: auto;
+}
+.hero-buttons {
+display: flex;
+gap: 15px;
+justify-content: center;
+flex-wrap: wrap;
+}
+.hero-image {
+position: relative;
+margin-top: 35px;
+height: 350px;
+border-radius: 15px;
+overflow: hidden;
+background: rgba(13,21,37,0.5);
+border: 1px solid rgba(0,255,204,0.1);
+}
+.chat-bubble {
+position: absolute;
+background: var(--card-bg);
+border-radius: 18px;
+padding: 18px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+max-width: 260px;
+animation: float 6s ease-in-out infinite;
+border: 1px solid rgba(0,255,204,0.1);
+}
+.chat-bubble::after {
+content: '';
+position: absolute;
+width: 18px;
+height: 18px;
+background: var(--card-bg);
+}
+.bubble-1 {
+top: 20px;
+left: 25px;
+animation-delay: 0s;
+border-bottom-left-radius: 0;
+border-left: 2px solid var(--cyber-blue);
+}
+.bubble-1::after {
+bottom: 0;
+left: -18px;
+clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+.bubble-2 {
+top: 140px;
+right: 35px;
+animation-delay: 1s;
+background: rgba(0,119,255,0.2);
+color: white;
+border-bottom-right-radius: 0;
+border-right: 2px solid var(--cyber-blue);
+}
+.bubble-2::after {
+bottom: 0;
+right: -18px;
+clip-path: polygon(0 0, 0 100%, 100% 0);
+background: rgba(0,119,255,0.2);
+}
+.bubble-3 {
+top: 260px;
+left: 85px;
+animation-delay: 2s;
+background: rgba(0,255,204,0.2);
+color: white;
+border-left: 2px solid var(--cyber-green);
+}
+.bubble-3::after {
+bottom: -18px;
+left: 50%;
+transform: translateX(-50%);
+clip-path: polygon(0 0, 100% 0, 50% 100%);
+background: rgba(0,255,204,0.2);
+}
+.chat-bubble p {
+margin: 0;
+font-size: 14px;
+line-height: 1.4;
+}
+.time {
+font-size: 11px;
+opacity: 0.7;
+text-align: right;
+margin-top: 6px;
+color: var(--cyber-green);
+}
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-12px); }
+}
+.features {
+padding: 70px 0;
+position: relative;
+z-index: 2;
+}
+.section-title {
+text-align: center;
+margin-bottom: 50px;
+}
+.section-title h2 {
+font-size: 2.2rem;
+color: var(--cyber-green);
+margin-bottom: 12px;
+text-shadow: 0 0 8px rgba(0,255,204,0.15);
+}
+.section-title p {
+color: #a0a0a0;
+font-size: 1rem;
+max-width: 550px;
+margin: 0 auto;
+}
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+}
+.feature-card {
+background: var(--card-bg);
+border-radius: 12px;
+padding: 25px;
+transition: transform 0.3s, box-shadow 0.3s;
+text-align: center;
+border: 1px solid rgba(0,255,204,0.1);
+position: relative;
+overflow: hidden;
+}
+.feature-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-green));
+}
+.feature-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 12px 35px rgba(0,119,255,0.15);
+}
+.feature-icon {
+width: 70px;
+height: 70px;
+background: rgba(0,119,255,0.1);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 18px;
+border: 2px solid var(--cyber-blue);
+}
+.feature-icon i {
+font-size: 32px;
+color: var(--cyber-green);
+}
+.feature-card h3 {
+font-size: 1.3rem;
+margin-bottom: 12px;
+color: var(--cyber-green);
+}
+.feature-card p {
+color: #c0c0c0;
+line-height: 1.5;
+font-size: 0.95rem;
+}
+.testimonials {
+padding: 70px 0;
+position: relative;
+}
+.testimonials::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at 20% 30%, rgba(0,119,255,0.05) 0%, transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,0,170,0.05) 0%, transparent 40%);
+pointer-events: none;
+z-index: -1;
+}
+.testimonial-carousel {
+max-width: 750px;
+margin: 0 auto;
+position: relative;
+overflow: hidden;
+}
+.testimonial-slides {
+display: flex;
+transition: transform 0.5s ease;
+}
+.testimonial-slide {
+min-width: 100%;
+padding: 0 18px;
+box-sizing: border-box;
+text-align: center;
+}
+.testimonial-content {
+background: var(--card-bg);
+border-radius: 15px;
+padding: 35px;
+position: relative;
+border: 1px solid rgba(0,255,204,0.1);
+}
+.testimonial-content::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-green));
+}
+.testimonial-text {
+font-size: 1rem;
+line-height: 1.6;
+color: #e0e0e0;
+margin-bottom: 25px;
+position: relative;
+z-index: 1;
+}
+.testimonial-author {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+}
+.author-img {
+width: 55px;
+height: 55px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid var(--cyber-green);
+}
+.author-info h4 {
+font-size: 1.1rem;
+color: var(--cyber-green);
+margin-bottom: 4px;
+}
+.author-info p {
+color: #a0a0a0;
+font-size: 0.85rem;
+}
+.carousel-nav {
+display: flex;
+justify-content: center;
+margin-top: 25px;
+gap: 8px;
+}
+.carousel-dot {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: rgba(0,255,204,0.3);
+cursor: pointer;
+transition: all 0.3s;
+}
+.carousel-dot.active {
+background: var(--cyber-green);
+transform: scale(1.1);
+box-shadow: 0 0 8px rgba(0,255,204,0.4);
+}
+.download {
+padding: 70px 0;
+text-align: center;
+}
+.download-content p {
+font-size: 1.1rem;
+color: #c0c0c0;
+margin-bottom: 35px;
+max-width: 580px;
+margin-left: auto;
+margin-right: auto;
+}
+.download-buttons {
+display: flex;
+gap: 15px;
+justify-content: center;
+flex-wrap: nowrap;
+}
+.download-btn {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 14px 22px;
+background: var(--card-bg);
+border-radius: 8px;
+text-decoration: none;
+color: #e0e0e0;
+border: 1px solid rgba(0,255,204,0.1);
+transition: all 0.3s;
+flex: 0 1 auto;
+animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.03); }
+}
+.download-btn:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 20px rgba(0,119,255,0.15);
+border-color: var(--cyber-green);
+}
+.download-btn i {
+font-size: 22px;
+color: var(--cyber-green);
+}
+.cta {
+padding: 80px 0;
+text-align: center;
+background: linear-gradient(135deg, var(--cyber-blue) 0%, var(--cyber-green) 100%);
+color: #000;
+position: relative;
+z-index: 1;
+border-radius: 15px;
+margin: 35px 0;
+overflow: hidden;
+}
+.cta::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 40%);
+pointer-events: none;
+}
+.cta h2 {
+font-size: 2.4rem;
+margin-bottom: 18px;
+text-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+.cta p {
+font-size: 1.1rem;
+max-width: 580px;
+margin: 0 auto 35px;
+opacity: 0.9;
+}
+.btn-cta {
+background: #000;
+color: var(--cyber-green);
+font-weight: 700;
+font-size: 16px;
+padding: 14px 35px;
+border-radius: 35px;
+box-shadow: 0 0 15px rgba(0,0,0,0.4);
+border: 2px solid var(--cyber-green);
+}
+.btn-cta:hover {
+transform: translateY(-2px);
+box-shadow: 0 0 25px rgba(0,0,0,0.6);
+background: rgba(0,0,0,0.9);
+}
+footer {
+background: var(--card-bg);
+color: #e0e0e0;
+padding: 50px 0 25px;
+border-top: 1px solid rgba(0,255,204,0.1);
+position: relative;
+}
+footer::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-green), var(--cyber-pink));
+}
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 35px;
+margin-bottom: 35px;
+}
+.footer-column h3 {
+font-size: 1.2rem;
+margin-bottom: 18px;
+position: relative;
+padding-bottom: 8px;
+color: var(--cyber-green);
+}
+.footer-column h3::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 40px;
+height: 2px;
+background: var(--cyber-green);
+}
+.footer-column ul {
+list-style: none;
+}
+.footer-column ul li {
+margin-bottom: 10px;
+}
+.footer-column ul li a {
+color: #a0a0a0;
+text-decoration: none;
+transition: color 0.3s;
+font-size: 0.95rem;
+}
+.footer-column ul li a:hover {
+color: var(--cyber-green);
+}
+.social-links {
+display: flex;
+gap: 12px;
+margin-top: 18px;
+}
+.social-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background: rgba(0,255,204,0.1);
+color: var(--cyber-green);
+transition: all 0.3s;
+border: 1px solid rgba(0,255,204,0.2);
+}
+.social-links a:hover {
+background: var(--cyber-green);
+color: #000;
+transform: translateY(-2px);
+box-shadow: 0 0 12px rgba(0,255,204,0.4);
+}
+.copyright {
+text-align: center;
+padding-top: 25px;
+border-top: 1px solid rgba(0,255,204,0.1);
+color: #a0a0a0;
+font-size: 13px;
+}
+body.no-scroll {
+overflow: hidden;
+}
+@media (max-width: 900px) {
+.hero-banner h2 {
+font-size: 2.3rem;
+}
+nav ul {
+display: none;
+}
+.menu-toggle {
+display: flex;
+}
+.auth-buttons {
+display: none;
+}
+.download-buttons {
+flex-wrap: wrap;
+}
+}
+@media (max-width: 600px) {
+.hero-banner h2 {
+font-size: 1.9rem;
+}
+.hero-banner {
+padding: 50px 0;
+}
+.hero-buttons {
+flex-direction: column;
+align-items: center;
+}
+.btn {
+width: 100%;
+max-width: 220px;
+}
+.cta h2 {
+font-size: 1.9rem;
+}
+.testimonial-content {
+padding: 25px 18px;
+}
+.hero-image {
+height: 300px;
+}
+.download-buttons {
+flex-direction: column;
+align-items: center;
+}
+.download-btn {
+width: 100%;
+max-width: 220px;
+justify-content: center;
+}
+.logo-container h1 {
+font-size: 20px;
+}
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="https://theekchat.rf.gd/assets/logos/TheekChat_logo.png">
+</head>
+<body>
+<header>
+<div class="container">
+<div class="header-content">
+<div class="logo-container">
+<div class="logo"></div>
+<h1>TheekChat</h1>
+</div>
+<nav>
+<ul>
+<li><a href="https://theekchat.rf.gd/">Home</a></li>
+<li><a href="#features" onclick="scrollToSection('features')">Features</a></li>
+<li><a href="#download" onclick="scrollToSection('download')">Download</a></li>
+<li><a href="#">About</a></li>
+<li><a href="/tc/contact/">Contact</a></li>
+</ul>
+</nav>
+<div class="auth-buttons">
+<a href="/auth/login/" class="btn btn-login">Login</a>
+<a href="/auth/register/" class="btn btn-signup">Sign Up</a>
+</div>
+<div class="menu-toggle" id="mobile-menu">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+<div class="mobile-menu" id="mobile-nav">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#features" onclick="scrollToSection('features')">Features</a></li>
+<li><a href="#download" onclick="scrollToSection('download')">Download</a></li>
+<li><a href="#">About</a></li>
+<li><a href="/tc/contact/">Contact</a></li>
+<li><a href="/auth/register/">Create Account</a></li>
+<li><a href="/auth/login/">Login</a></li>
+</ul>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-banner">
+<h2>Connect with anyone, anywhere, instantly</h2>
+</div>
+<div class="hero-content">
+<p>TheekChat brings people together with military-grade encrypted messaging, voice calls, and video chats. Secure, private, and completely free. Experience the best in secure communication with our advanced end-to-end encryption technology.</p>
+<div class="hero-buttons">
+<a href="auth/register/" class="btn btn-signup">Get Started</a>
+<a href="#download" class="btn btn-login" onclick="scrollToSection('download')">Download App</a>
+</div>
+</div>
+<div class="hero-image">
+<div class="chat-bubble bubble-1">
+<p>Hey! Are you joining us today?</p>
+<div class="time">10:24 AM</div>
+</div>
+<div class="chat-bubble bubble-2">
+<p>Yes, I'm totally ready to join today.</p>
+<div class="time">10:25 AM</div>
+</div>
+<div class="chat-bubble bubble-3">
+<p>Really glad to hear that. Welcome onboard.</p>
+<div class="time">10:26 AM</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features" id="features">
+<div class="container">
+<div class="section-title">
+<h2>Amazing Features</h2>
+<p>Everything you need, all in one place. TheekChat offers a comprehensive set of features for secure communication.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-comment-dots"></i>
+</div>
+<h3>Real-time Chat</h3>
+<p>Send messages instantly with our lightning-fast chat system. See when others are typing in real-time. Enjoy seamless communication with our advanced messaging platform.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-video"></i>
+</div>
+<h3>Video Calls</h3>
+<p>Crystal clear video calls with friends and family. Group video calls for up to 20 people. Experience high-quality video calls with minimal latency and excellent connection stability.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-lock"></i>
+</div>
+<h3>End-to-End Encryption</h3>
+<p>Your conversations are private and secure with military-grade encryption. Our end-to-end encryption ensures that only you and your recipients can read your messages.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-file"></i>
+</div>
+<h3>File Sharing</h3>
+<p>Share documents, photos, and videos up to 2GB with no compression. Transfer files securely with our encrypted file sharing technology.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-users"></i>
+</div>
+<h3>Groups & Communities</h3>
+<p>Create groups for friends, family, or teams. Build communities around shared interests. Manage large groups with advanced moderation tools.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-palette"></i>
+</div>
+<h3>Custom Themes</h3>
+<p>Personalize your chat experience with beautiful themes and color schemes. Choose from our pre-made themes or create your own custom design.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-ellipsis-h"></i>
+</div>
+<h3>& Lot More</h3>
+<p>Free resources, workspace, content monetization, profile lock, live chat with AI, and more amazing additional features. TheekChat continues to evolve with regular updates.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials">
+<div class="container">
+<div class="section-title">
+<h2>What Our Users Say</h2>
+<p>Don't just take our word for it - hear from our community</p>
+</div>
+<div class="testimonial-carousel">
+<div class="testimonial-slides" id="testimonial-slides">
+<div class="testimonial-slide">
+<div class="testimonial-content">
+<p class="testimonial-text">"TheekChat has completely transformed how our team communicates. The video quality is exceptional and the interface is so intuitive that even our least tech-savvy members had no trouble adapting. The end-to-end encryption gives us peace of mind for our business discussions."</p>
+<div class="testimonial-author">
+<img src="https://theekchat.rf.gd/assets/icons/default_male.jpg" alt="Dr. Elena Rodriguez" class="author-img">
+<div class="author-info">
+<h4>Dr. Elena Rodriguez</h4>
+<p>Business Analyst</p>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial-slide">
+<div class="testimonial-content">
+<p class="testimonial-text">"As someone who works with international clients, I need reliable communication tools. TheekChat's call quality is consistently excellent, even with poor internet connections. It's become my go-to app for all my professional and personal communication needs."</p>
+<div class="testimonial-author">
+<img src="https://theekchat.rf.gd/assets/icons/default_male.jpg" alt="Marcus Johnson" class="author-img">
+<div class="author-info">
+<h4>Marcus Johnson</h4>
+<p>Freelance Consultant</p>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial-slide">
+<div class="testimonial-content">
+<p class="testimonial-text">"I've tried many messaging apps over the years, but TheekChat stands out for its perfect balance of simplicity and powerful features. The end-to-end encryption gives me peace of mind for sensitive conversations, and the ability to make high-quality video calls is a game-changer."</p>
+<div class="testimonial-author">
+<img src="https://theekchat.rf.gd/assets/icons/default_male.jpg" alt="Alexandra Petrov" class="author-img">
+<div class="author-info">
+<h4>Alexandra Petrov</h4>
+<p>Business Owner</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-nav">
+<div class="carousel-dot active" data-index="0"></div>
+<div class="carousel-dot" data-index="1"></div>
+<div class="carousel-dot" data-index="2"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="download" id="download">
+<div class="container">
+<div class="section-title">
+<h2>Download TheekChat</h2>
+<p>Get the app on your favorite platform</p>
+</div>
+<div class="download-content">
+<p>Enjoy TheekChat on all your devices. Our app is available for Android, iOS, and as a web application. Experience secure messaging with end-to-end encryption today.</p>
+<div class="download-buttons">
+<a href="https://drive.google.com/file/d/1OTk8ugCp6kdXDA4YOmkA3wRXgSOiPZnz/view?usp=drivesdk" class="download-btn">
+<i class="fab fa-android"></i>
+<span>Android</span>
+</a>
+<a href="#" class="download-btn">
+<i class="fab fa-apple"></i>
+<span>iOS (Coming Soon)</span>
+</a>
+<a href="#" class="download-btn">
+<i class="fas fa-desktop"></i>
+<span>Web App</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<h2>Ready to get started?</h2>
+<p>Join millions of users already enjoying TheekChat. It's free, fast, and secure. Get started today and experience the future of communication with our advanced features and end-to-end encryption.</p>
+<a href="auth/register/" class="btn btn-cta">Create an Account</a>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-column">
+<div class="logo-container">
+<div class="logo"></div>
+<h1 style="color:white">TheekChat</h1>
+</div>
+<p style="color:#adb5bd;margin-top:18px;line-height:1.6">TheekChat - Connecting people around the world with simple, secure, and reliable messaging. Our platform offers end-to-end encryption for all your communication needs, including video calls and file sharing.</p>
+<div class="social-links">
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="
