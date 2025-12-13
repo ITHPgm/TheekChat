@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheekChat | Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00ffff;
+            --secondary: #ff00ff;
+            --dark: #0a192f;
+            --darker: #020c1b;
+            --text: #e6f1ff;
+            --error: #ff5555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .binary-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: -2;
+        }
+
+        .binary-digit {
+            position: absolute;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            opacity: 0.7;
+            text-shadow: 0 0 5px #0f0;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5),
+                       inset 0 0 15px rgba(0, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: all 0.5s ease;
+        }
+
+        .login-box:hover {
+            transform: perspective(1000px) rotateX(0deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
+                       inset 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.7));
+        }
+
+        h1 {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            cursor: pointer;
+            color: var(--primary);
+            user-select: none;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #a0aec0;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--primary);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .remember-me input:checked + .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            color: var(--primary);
+            font-size: 12px;
+            left: 2px;
+            top: -2px;
+        }
+
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .login-button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            color: var(--darker);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 10px;
+            }
+            
+            .login-box {
+                padding: 30px 20px;
+            }
+            
+            input[type="text"],
+            input[type="password"] {
+                padding: 12px 12px 12px 40px;
+            }
+            
+            .remember-forgot {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="binary-rain" id="binaryRain"></div>
+    
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-container">
+                <img src="https://theekchat.rf.gd/assets/logos/TheekChat_logo.png" alt="TheekChat Logo" class="logo">
+                <h1>Login</h1>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <span class="input-icon"><i class="fas fa-user"></i></span>
+                    <input type="text" id="username" placeholder="Username or Email" required>
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-icon"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword()"><i class="fas fa-eye"></i></span>
+                </div>
+                
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" checked>
+                        <span class="checkbox-custom"></span>
+                        Remember me
+                    </label>
+                    <a href="reset.html" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="login-button">Sign In</button>
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+            
+            <div class="signup-link">
+                Don't have an account? <a href="register.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Binary rain effect
+        function createBinaryRain() {
+            const container = document.getElementById('binaryRain');
+            const digits = '01';
+            const columns = Math.floor(window.innerWidth / 20);
+            
+            for (let i = 0; i < columns; i++) {
+                const digit = document.createElement('div');
+                digit.className = 'binary-digit';
+                digit.textContent = digits[Math.floor(Math.random() * digits.length)];
+                digit.style.left = `${(i * 20) + 10}px`;
+                digit.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                digit.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(digit);
+                
+                createBinaryStream(digit, container);
+            }
+        }
+        
+        function createBinaryStream(firstDigit, container) {
+            const streamLength = Math.floor(Math.random() * 15) + 10;
+            const delay = parseFloat(firstDigit.style.animationDuration) / streamLength;
+            
+            for (let i = 1; i < streamLength; i++) {
+                setTimeout(() => {
+                    const digit = document.createElement('div');
+                    digit.className = 'binary-digit';
+                    digit.textContent = Math.random() > 0.5 ? '1' : '0';
+                    digit.style.left = firstDigit.style.left;
+                    digit.style.top = `${-20 * i}px`;
+                    digit.style.animationDuration = firstDigit.style.animationDuration;
+                    container.appendChild(digit);
+                }, delay * i * 1000);
+            }
+        }
+        
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+        
+        // Form validation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorElement = document.getElementById('errorMessage');
+            
+            if (!username || !password) {
+                errorElement.textContent = 'Please fill in all fields';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            // Simulate authentication
+            errorElement.style.display = 'none';
+            const loginBtn = document.querySelector('.login-button');
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+            loginBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Redirect to dashboard on successful login
+                window.location.href = 'dashboard.html';
+            }, 1500);
+        });
+        
+        // Remember me functionality
+        document.getElementById('rememberMe').addEventListener('change', function() {
+            localStorage.setItem('rememberMe', this.checked);
+        });
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            createBinaryRain();
+            
+            // Check remember me
+            if (localStorage.getItem('rememberMe') === 'true') {
+                document.getElementById('rememberMe').checked = true;
+            }
+        });
+        
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.binary-digit').forEach(el => el.remove());
+            createBinaryRain();
+        });
+    </script>
+</body>
+</html>
